@@ -1,0 +1,160 @@
+body {
+    background-color: darkgrey;
+
+}
+
+.maincontainer {
+    text-align: center;
+}
+
+.title {
+    align-items: center;
+    text-align: center;
+    background-color: rgb(87, 86, 86);
+    font-family: "Permanent Marker", cursive;
+    padding: 20px;
+    color: goldenrod;
+    /* animation: twoPlayer 2s infinite; */
+}
+/*Para darle las dimensiones a cada celda y color en los bordes para que sean visibles*/
+.celda {
+    width: 75px;
+    height: 75px;
+    border: 2px solid;
+    font-size: 50px;
+    cursor: pointer;
+    font-family: "Permanent Marker", cursive;
+    text-align: center;
+    border-color: goldenrod;
+    box-shadow: 0 0 0 2px;
+}
+
+/*Para acomodar los contenedores 3x3*/
+.gameContainer {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 225px;
+    margin: auto;
+    position: relative; top: 20px;
+}
+
+.restartContainer {
+    align-items: center;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+}
+
+.tableStatus {
+    background-color: rgb(118, 127, 117);
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+#playerBtn1 {
+    background-color: rgb(84, 108, 108);
+    color: goldenrod;
+    border-radius: 10%;
+    padding: 15px;
+    border: none;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    font-style: italic;
+}
+
+#playerBtn1:hover {
+    background-color: #435b45; 
+}
+
+#playerBtn2 {
+    background-color: rgb(84, 108, 108);
+    color: goldenrod;
+    border-radius: 10%;
+    padding: 15px;
+    border: none;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    font-style: italic;
+}
+
+#playerBtn2:hover {
+    background-color: #435b45; 
+}
+
+#restartBtn {
+    background-color: rgb(80, 80, 80);
+    color: goldenrod;
+    position: relative; top: 10px;
+    border: none;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10%;
+    padding: 10px;
+    font-family: monospace;
+}
+
+#restartBtn:hover,
+#restartBtn:focus-within {
+    background-color: #435b45; 
+}
+
+.score {
+    background-color: rgb(158, 16, 45);
+    color: goldenrod;
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+.scoreContainer {
+    background-color: crimson;
+    text-align: center;
+}
+
+#scoresWinX {
+    padding: 20px;
+    background-color: rgb(156, 19, 47);
+    color: goldenrod;
+}
+
+#scoresWinO {
+    padding: 20px;
+    background-color: rgb(156, 19, 47);
+    color: goldenrod;
+}
+
+#scoresDraw {
+    padding: 20px;
+    color: goldenrod;
+    background-color: rgb(156, 19, 47);
+}
+
+.scoreSub {
+    color: goldenrod;
+    position: relative; right: 370px;
+}
+.t2{
+    display: none;
+    animation: twoPlayer 2s infinite;
+}
+
+@keyframes twoPlayer {
+    0%{
+        color: red;
+        /* transform: translateY(120px); */
+    }
+    50%{
+        color: blue;
+        /* transform: translateY(-20px); */
+
+    }
+    100%{
+        color: green;
+        /* transform: translateY(20px); */
+
+    }
+}

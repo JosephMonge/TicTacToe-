@@ -4,14 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="tictactoe.css">
 </head>
 <body>
-    <div>
-        <h1>Tic-Tac-Toe</h1>
+    <div class="mainContainer">
+        <div class="title">
+            <h1>Tic-Tac-Toe</h1>
+        </div>
 
-    </div>
-
-
+    <div class="tableStatus">
+    <tr>
+        <th><button id="playerBtn1" type="button">Single Player</button></th>
+        <th><button id="playerBtn2" type="button">2 Players</button></th>
+    </tr>
+    </div> 
     
+    <div class="gameContainer">
+        <div cellIndex = "0" class="celda"></div>
+        <div cellIndex = "1" class="celda"></div>
+        <div cellIndex = "2" class="celda"></div>
+        <div cellIndex = "3" class="celda"></div>
+        <div cellIndex = "4" class="celda"></div>
+        <div cellIndex = "5" class="celda"></div>
+        <div cellIndex = "6" class="celda"></div>
+        <div cellIndex = "7" class="celda"></div>
+        <div cellIndex = "8" class="celda"></div> 
+    </div>
+    <h2 class="t2" id="t2">Two Player Mode</h2>
+
+    <div class="restartContainer">
+    <h2 id="statusPlayer"></h2>
+    <button id="restartBtn">Restart</button>
+    </div>
+   
+    <div class="scoreContainer">
+        <h2 class="score">Scoreboard</h2>
+     <table>
+            <h1 class="scoreSub">User / "X" | "O"</h1>
+          <tr>
+          <th>Wins</th>
+          <td>
+            <p id="scoresWinX">0</p>
+            <p id="scoresWinO">0</p>
+          </td>  
+        </tr>
+
+          <tr>
+            <th>Draws</th>
+            <td>
+            <p id="scoresDraw">0</p>
+            </td>
+          </tr>
+          
+     </table>
+
+     </div>
+     
+
+    <script src="tictactoe.js"></script>
 </body>
 </html>
