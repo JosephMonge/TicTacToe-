@@ -34,7 +34,7 @@ let victoriasO = localStorage.getItem("WinsO") || 0
 let derrotasO = 0
 let moveCount = 0
 let running = false;
-let draw = false
+let draw = true
 
 initializeGame();
 
@@ -52,6 +52,7 @@ playerBtn1.addEventListener("click", ()=>{
     randomPc()
 })
 function randomPc() {
+        statusPlayer.textContent = `O's turn`;
    const vacias = celdas.filter((celda)=>celda.innerHTML == "")
    const aleatorio = Math.floor((Math.random() * vacias.length));
    if (vacias.length > 0) {
@@ -61,6 +62,9 @@ function randomPc() {
     options[cellIndex] = "O"; 
     moveCount++;
     checkWinner();
+    setTimeout(() => {
+    statusPlayer.textContent = `X's turn`;
+    }, 500);
   }
 }
 function cellClicked(){
@@ -78,7 +82,7 @@ function cellClicked(){
         if(!ganador){
             setTimeout(() => {
                 randomPc();
-            }, 1000);
+            }, 500);
             checkWinner()
         }
         checkWinner()
@@ -102,7 +106,7 @@ function changePlayer(){
 
 let roundWon = false;
 function checkWinner() {
-    console.log(roundWon);
+    console.log(draw);
     for (const pos of winConditions) {
         const [pos1, pos2, pos3] = pos;
         if (celdas[pos1].textContent !== "" && celdas[pos1].textContent === celdas[pos2].textContent && celdas[pos1].textContent === celdas[pos3].textContent) {
@@ -114,25 +118,29 @@ function checkWinner() {
                 victoriasX++;
                 roundWon = true;
                 ganador = true;
+                statusPlayer.textContent = `X wins!`;
+                return
             } else if (celdas[pos1].textContent === "O") {
                 CurrentPlayer = "O";
+                victoriasO++;
                 localStorage.setItem("WinsO", victoriasO);
                 scoresWinO.textContent = victoriasO;
-                victoriasO++;
                 roundWon = true;
                 ganador = true;
+                statusPlayer.textContent = `O wins!`;
+                return
             }
        
         }
     }
         //Para verificar si hay empate
-    if (!roundWon && moveCount === 9) {
+    if (!roundWon && moveCount === 9 && draw) {
+        draws++;
         localStorage.setItem("draws", draws);
         scoresDraw.textContent = draws;
-        draws++;
         statusPlayer.textContent = `Draw!`; 
         running = false;
-        return;  
+        draw = false
     }
         //Si se cumple el ganador que termine el juego
     if (roundWon) {
