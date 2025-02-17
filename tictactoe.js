@@ -74,10 +74,14 @@ function cellClicked(){
     updateCell(this, cellIndex);
     checkWinner();
     if (!twoPlayersMode && !roundWon) {
-        
+       
         if(!ganador){
-            randomPc();
+            setTimeout(() => {
+                randomPc();
+            }, 1000);
+            checkWinner()
         }
+        checkWinner()
     }
     if (twoPlayersMode) {
         changePlayer()
@@ -97,52 +101,50 @@ function changePlayer(){
 }
 
 let roundWon = false;
-function checkWinner (){
+function checkWinner() {
+    console.log(roundWon);
     for (const pos of winConditions) {
-        const [pos1,pos2,pos3] = pos
-
-        if (celdas[pos1].textContent !="" && celdas[pos1].textContent === celdas[pos2].textContent && celdas[pos1].textContent === celdas[pos3].textContent) {
+        const [pos1, pos2, pos3] = pos;
+        if (celdas[pos1].textContent !== "" && celdas[pos1].textContent === celdas[pos2].textContent && celdas[pos1].textContent === celdas[pos3].textContent) {
             roundWon = true;
-            if(celdas[pos1].textContent==="X"){
-                CurrentPlayer = "X"
-                localStorage.setItem("winsX",victoriasX)
-                scoresWinX.textContent = victoriasX
-                victoriasX++
+            if (celdas[pos1].textContent === "X") {
+                CurrentPlayer = "X";
+                localStorage.setItem("winsX", victoriasX);
+                scoresWinX.textContent = victoriasX;
+                victoriasX++;
                 roundWon = true;
-                ganador = true
-                 
-            }else if(celdas[pos1].textContent==="O"){
-                CurrentPlayer = "O"
-                localStorage.setItem("WinsO",victoriasO)
-                scoresWinO.textContent = victoriasO
-                victoriasO++
+                ganador = true;
+            } else if (celdas[pos1].textContent === "O") {
+                CurrentPlayer = "O";
+                localStorage.setItem("WinsO", victoriasO);
+                scoresWinO.textContent = victoriasO;
+                victoriasO++;
                 roundWon = true;
-                ganador = true
+                ganador = true;
             }
-        }
-        if(!ganador && moveCount === 9){
-            localStorage.setItem("draws", draws)
-            scoresDraw.textContent = draws
-            draws++
-            return
+       
         }
     }
-
-     if (roundWon) {            //Template literal
+        //Para verificar si hay empate
+    if (!roundWon && moveCount === 9) {
+        localStorage.setItem("draws", draws);
+        scoresDraw.textContent = draws;
+        draws++;
+        statusPlayer.textContent = `Draw!`; 
+        running = false;
+        return;  
+    }
+        //Si se cumple el ganador que termine el juego
+    if (roundWon) {
         statusPlayer.textContent = `${CurrentPlayer} wins!`;
         running = false;
-     }
-     if(!ganador && moveCount === 9){
-        statusPlayer.textContent = `Draw!`;
-        running = false;
-     }
-
+    }
 }
 
 function restartGame (){
     window.location.reload()
 }
-
+    //Para activar el modo de 2 jugadores 
 playerBtn2.addEventListener("click",function(){
     twoPlayersMode = true
     text2Player.style.display = "block"

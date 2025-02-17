@@ -145,16 +145,16 @@ body {
 @keyframes twoPlayer {
     0%{
         color: red;
-        /* transform: translateY(120px); */
+         transform: translateY(120px); 
     }
     50%{
         color: blue;
-        /* transform: translateY(-20px); */
+         transform: translateY(-20px); 
 
     }
     100%{
         color: green;
-        /* transform: translateY(20px); */
+         transform: translateY(20px); 
 
     }
 }
