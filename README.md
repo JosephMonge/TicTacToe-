@@ -40,19 +40,19 @@ Sets the background color to dark grey.
 Main Container (.mainContainer)
 Centers the content.
 
-Title (.title)
+.title
 Centers the text, sets the background color, font, padding, and color.
 
-Cell (.celda)
+.celda
 Sets dimensions, border, font size, cursor style, font, and text alignment.
 
-Game Container (.gameContainer)
+.gameContainer
 Defines a 3x3 grid layout, centers it, and adds top margin.
 
-Restart Container (.restartContainer)
+.restartContainer
 Centers the content, sets the font and style.
 
-Table Status (.tableStatus)
+.tableStatus
 Sets the background color, padding, and centers the text.
 
 Buttons (#playerBtn1, #playerBtn2, #restartBtn)
@@ -61,13 +61,13 @@ Sets background color, text color, border radius, padding, border, cursor style,
 Score (.score, #scoresWinX, #scoresWinO, #scoresDraw)
 Sets background color, text color, padding, and text alignment.
 
-Score Subheader (.scoreSub)
+.scoreSub
 Sets text color and relative position.
 
 Game Mode Header (.t2)
 Hides the element and adds an animation for the text color and position.
 
-Keyframes (@keyframes twoPlayer)
+@keyframes twoPlayer
 Defines the animation for the game mode header.
 <hr>
 <br>
