@@ -2,11 +2,11 @@ Tic Tac Toe RULES
 <hr>
 1. The game is played on a grid that's 3 squares by 3 squares.
 
-2. You are X, your friend (or the computer) is O. Players take turns putting their marks in empty cells.
+2. You are X, your friend (or the computer) is O, Players take turns putting their marks in empty cells.
 
 3. The first player to get 3 of their marks in a row (up, down, across, or diagonally) is the winner.
 
-4. When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.
+4. When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a draw.
 <hr>
 <br>
 
@@ -76,24 +76,19 @@ JS
 Game Setup
 
 initializeGame: Sets up the initial game state, event listeners, and default player.
-Single Player Mode
 
-playerBtn1.addEventListener("click"): Reloads the page and triggers the computer move.
+Single Player Mode
+playerBtn1.addEventListener("click") Reloads the page and triggers the computer move.
 randomPc: Selects a random empty cell for the computer's move.
 
-Cell Click Handling
 cellClicked: Handles cell click events, updates the game state, and checks for a winner.
 
-Cell Update
-updateCell(cell, index): Updates the clicked cell with the current player's symbol.
+updateCell(cell, index) Updates the clicked cell with the current player's symbol.
 
-Player Change
 changePlayer: Switches the current player and updates the status display.
 
-Win Check
 checkWinner: Checks for winning conditions, updates scores, and declares the winner.
 
-Restart Game
 restartGame: Reloads the page to restart the game.
 
 Two Player Mode
